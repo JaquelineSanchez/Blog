@@ -6,3 +6,7 @@ def home(request):
     #return HttpResponse("Bienvenid@ a mi blog") #Texto plano
     posts = Post.objects.all()
     return render(request,"blog/home.html",{'posts':posts})
+
+def post(request,id):
+    post = Post.objects.get(id=id)
+    return render(request,"blog/post.html",{'post':post})
